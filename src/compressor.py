@@ -6,12 +6,11 @@ class Compressor:
 		self.words = string.split(' ')
 
 	def compress(self):
+		#
 		return self.count_words + self.encode_table()
 
-	def decompress(self):
-		...
-
 	def count_words(self):
+		#
 		idx = 0
 		for word in self.words:
 			if word in self.table:
@@ -24,4 +23,5 @@ class Compressor:
 		return bytes(self.encoded)
 	
 	def encode_table(self):
+		#
 		return b'|' + '|'.join(self.table.keys()).encode()
