@@ -7,9 +7,9 @@ class Compressor:
 
 	def compress(self):
 		#
-		return self.count_words + self.encode_table()
+		return self.encode_words() + self.encode_table()
 
-	def count_words(self):
+	def encode_words(self):
 		#
 		idx = 0
 		for word in self.words:

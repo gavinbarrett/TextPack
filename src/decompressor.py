@@ -5,9 +5,10 @@ class Decompressor:
 		self.encoded = []
 		self.compressed = string
 	
-	def decompress(self, ):
-		#
+	def decompress(self):
+		# find the boundary of the compressed string
 		idx = self.compressed.find(b'|')
+		# raise an error if the table can't be located
 		if idx == -1:
 			raise Exception('Unable to locate compression table.')
 		# extract compressed string
@@ -18,5 +19,7 @@ class Decompressor:
 		entries = table.decode().split('|')
 		# delete empty string at head
 		del entries[0]
+		# translate the indices to words
 		new_str = [entries[c] for c in compr]
-		print(' '.join(new_str))
+		# return the words joined into a string
+		return ' '.join(new_str)
